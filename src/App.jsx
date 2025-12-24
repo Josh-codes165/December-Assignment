@@ -65,8 +65,7 @@ function App() {
               placeholder="Product Name"
               value={formData.name}
               onChange={handleChange}
-            />{' '}
-            <br />
+            />
             {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
             <input
               type="number"
@@ -75,16 +74,31 @@ function App() {
               value={formData.price}
               onChange={handleChange}
             />
-            <br />
             {errors.price && <p style={{ color: 'red' }}>{errors.price}</p>}
-            <input
-              type="text"
-              name="category"
-              placeholder="Category"
-              value={formData.category}
-              onChange={handleChange}
-            />
-            <br />
+            <select name="category" id="" value={formData.category} onChange={handleChange}>
+              <option value="">Choose Category</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Fashion">Fashion</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Footwear">Footwear</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+              <option value="Health & Wellness">Health & Wellness</option>
+              <option value="Home & Kitchen">Home & Kitchen</option>
+              <option value="Furniture">Furniture</option>
+              <option value="Groceries">Groceries</option>
+              <option value="Food & Beverages">Food & Beverages</option>
+              <option value="Books">Books</option>
+              <option value="Stationery">Stationery</option>
+              <option value="Sports & Fitness">Sports & Fitness</option>
+              <option value="Toys & Games">Toys & Games</option>
+              <option value="Baby Products">Baby Products</option>
+              <option value="Automobile">Automobile</option>
+              <option value="Phones & Gadgets">Phones & Gadgets</option>
+              <option value="Computers & Accessories">Computers & Accessories</option>
+              <option value="Office Supplies">Office Supplies</option>
+
+            </select>
             {errors.category && (
               <p style={{ color: 'red' }}>{errors.category}</p>
             )}
@@ -95,7 +109,6 @@ function App() {
               value={formData.description}
               onChange={handleChange}
             />
-            <br />
             <button type="submit">Create Product</button>
             {success && <p style={{ color: 'green' }}>{success}</p>}
           </form>
