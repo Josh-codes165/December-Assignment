@@ -39,6 +39,13 @@ select {
   border-radius: 5px;
   border: none;
 }
+input:hover{
+  transform: translateY(-2px);
+}
+
+select:hover {
+  transform: translateY(-2px);
+}
 
 input::placeholder {
   color: #64748b;
@@ -51,5 +58,13 @@ button {
   border-radius: 10px;
   border: none;
   background-color: #1e293b;
+  color: white;
+}
+button:hover {
+  margin-top: 20px;
+  width: fit-content;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(122, 151, 122);
   color: white;
 }
