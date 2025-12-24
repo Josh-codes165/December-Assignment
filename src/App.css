@@ -8,11 +8,11 @@
 }
 .container {
   display: flex;
+  align-self: center;
   flex-direction: column;
   align-self: center;
   max-width: 500px;
   width: 100%;
-  text-align: center;
   background-color: gray;
   border: 1px solid black;
   border-radius: 15px;
