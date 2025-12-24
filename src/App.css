@@ -6,15 +6,12 @@
   padding: 10px 10px;
   
 }
-body {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
+
 .container {
   display: flex;
   flex-direction: column;
   align-self: center;
+  justify-self: center;
   max-width: 500px;
   width: 100%;
   background-color: gray;
