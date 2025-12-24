@@ -6,9 +6,13 @@
   padding: 10px 10px;
   
 }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container {
   display: flex;
-  align-self: center;
   flex-direction: column;
   align-self: center;
   max-width: 500px;
