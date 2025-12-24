@@ -47,7 +47,7 @@ function App() {
       const data = await response.json();
       if (!response.ok)
         throw new Error(data.message || 'Failed to create product');
-      setSuccess('Product created successfully!');
+      alert('Product created successfully!');
       setErrors({});
     } catch (error) {
       alert(error.message);
@@ -102,13 +102,7 @@ function App() {
             {errors.category && (
               <p style={{ color: 'red' }}>{errors.category}</p>
             )}
-            <input
-              type="text"
-              name="description"
-              placeholder="Description (Optional)"
-              value={formData.description}
-              onChange={handleChange}
-            />
+            <textarea name="description" id="" cols="30" rows="10" onChange={handleChange} placeholder="Enter Product Description"value={formData.description}></textarea>
             <button type="submit">Create Product</button>
             {success && <p style={{ color: 'green' }}>{success}</p>}
           </form>
