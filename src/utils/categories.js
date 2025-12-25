@@ -1,0 +1,22 @@
+export const cates = [
+    "Electronics",
+    "Fashion",
+    "Clothing",
+    "Footwear",
+    "Accessories",
+    "Beauty & Personal Care",
+    "Health & Wellness",
+    "Home & Kitchen",
+    "Furniture",
+    "Groceries",
+    "Food & Beverages",
+    "Books",
+    "Stationery",
+    "Sports & Fitness",
+    "Toys & Games",
+    "Baby Products",
+    "Automobile",
+    "Phones & Gadgets",
+    "Computers & Accessories",
+    "Office Supplies"
+  ];
