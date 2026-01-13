@@ -1,6 +1,21 @@
 import { useState } from 'react';
 import './App.css';
 import { cates } from './utils/categories';
+import { useMutation } from '@tanstack/react-query';
+
+const postProduct = async (ProductData) => {
+  const response = await fetch("https://api.oluwasetemi.dev/products", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(ProductData)
+  })
+  if(!response.ok){
+    const errorMessage = await response.json()
+    throw new Error(errorMessage.message || "Something went wrong")
+  }
+
+  return response.json()
+}
 
 function App() {
   const [formData, setFormData] = useState({
@@ -35,31 +50,28 @@ function App() {
       setErrors(validationErrors);
       return;
     }
-    try {
-      const response = await fetch('https://api.oluwasetemi.dev/products', {
-        method: 'POST',
-        headers: { 'content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          price: Number(formData.price),
-        }),
-      });
 
-      const data = await response.json();
-      if (!response.ok)
-        throw new Error(data.message || 'Failed to create product');
-      alert('Product created successfully!');
+    mutation.mutate({
+      ...formData,
+      price: Number(formData.price)
+    })
+   };
+
+  const mutation = useMutation({
+    mutationFn : postProduct,
+    onSuccess : (data) => {
+      alert("Product Created Succesfully")
       setFormData({
         name: "",
         price:"",
         category: "",
         description: ""
       })
-      setErrors({});
-    } catch (error) {
-      alert(error.message);
+    },
+    onError : (error) => {
+      alert(error.message)
     }
-  };
+  })
   
   return (
     <>
@@ -94,7 +106,7 @@ function App() {
             {errors.price && <p style={{ color: 'red' }}>{errors.price}</p>}
             
             <textarea name="description" id="" cols="30" rows="10" onChange={handleChange} placeholder="Enter Product Description"value={formData.description}></textarea>
-            <button type="submit">Create Product</button>
+            <button type="submit" disabled={mutation.isPending}>{mutation.isPending ? 'Saving...' : 'Create Product'}</button>
             {success && <p style={{ color: 'green' }}>{success}</p>}
           </form>
         </div>
